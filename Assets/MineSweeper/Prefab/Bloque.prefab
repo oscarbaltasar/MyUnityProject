@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2600149142187379612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 503.45975, y: 1.294857, z: 320.14197}
-  m_LocalScale: {x: 0.5, y: 1, z: 0.5}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mina: 1
-  radio: 0.7
+  radio: 0.8
   minaPrefav: {fileID: 100000, guid: 97ef08cc7411beb4b833c8331d89702f, type: 3}
   numerosPrefav:
   - {fileID: 4750212132673718750, guid: 1f5b9590f683b4a4096ee9fd561541a1, type: 3}

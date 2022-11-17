@@ -17,7 +17,6 @@ public class Bloque : MonoBehaviour
 
     public List<GameObject> numerosPrefav;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -76,8 +75,11 @@ public class Bloque : MonoBehaviour
     {
         if (collision.gameObject.tag == "Pala")
         {
-            MostrarContenido();
-            this.gameObject.SetActive(false);
+            if (collision.gameObject.GetComponent<TwoHandsGrabInteractable>().isSelected)
+            {
+                MostrarContenido();
+                this.gameObject.SetActive(false);
+            } 
         }
     }
 }
