@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mina: 1
-  radio: 0.8
+  radio: 0.71
   minaPrefav: {fileID: 100000, guid: 97ef08cc7411beb4b833c8331d89702f, type: 3}
   numerosPrefav:
   - {fileID: 4750212132673718750, guid: 1f5b9590f683b4a4096ee9fd561541a1, type: 3}

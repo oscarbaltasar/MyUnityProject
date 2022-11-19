@@ -78,8 +78,10 @@ public class Bloque : MonoBehaviour
             if (collision.gameObject.GetComponent<TwoHandsGrabInteractable>().isSelected)
             {
                 MostrarContenido();
-                this.gameObject.SetActive(false);
-            } 
+                //this.gameObject.SetActive(false);
+                Destroy(this.gameObject);
+
+            }
         }
     }
 }

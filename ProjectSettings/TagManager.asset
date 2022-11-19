@@ -7,6 +7,8 @@ TagManager:
   - Bloque
   - enemy
   - Pala
+  - Mina
+  - Mano
   layers:
   - Default
   - TransparentFX
