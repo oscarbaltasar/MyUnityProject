@@ -7,7 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class GunGlow : MonoBehaviour
 {
     [SerializeField] private InputActionReference activarAtaque;
-    [SerializeField] private XRRayInteractor interactorActivarAtaque;
+    //[SerializeField] private XRRayInteractor interactorActivarAtaque;
     private Color customColor = new Color(1f, 1f, 1f, 1.0f);
     public Renderer cubeRenderer;
 
@@ -26,10 +26,12 @@ public class GunGlow : MonoBehaviour
 
     private void CambiarColor(InputAction.CallbackContext obj)
     {
-        interactorActivarAtaque.enabled = !interactorActivarAtaque.enabled;
-        customColor.r -= 0.1f;
-        customColor.g -= 0.1f;
-        customColor.b -= 0.1f;
-        cubeRenderer.material.color = customColor;
+        Debug.Log(obj.ToString());
+            //interactorActivarAtaque.enabled = !interactorActivarAtaque.enabled;
+            customColor.r -= 0.1f;
+            customColor.g -= 0.1f;
+            customColor.b -= 0.1f;
+            cubeRenderer.material.color = customColor;
+        
     }
 }

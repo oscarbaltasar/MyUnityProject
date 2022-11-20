@@ -7,6 +7,10 @@ public class GunGrabInteractable : XRGrabInteractable
 {
     [SerializeField]
     private Transform _secondAttachTransform;
+    [SerializeField]
+    private LineRenderer laser;
+    [SerializeField]
+    private GunGlow gunVisualCooldown;
 
     protected override void Awake()
     {
@@ -15,13 +19,22 @@ public class GunGrabInteractable : XRGrabInteractable
     }
     public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
     {
+
         if(this.interactorsSelecting.Count == 1)
         {
             base.ProcessInteractable(updatePhase);
+            laser.enabled = true;
+            gunVisualCooldown.enabled = true;
         } else if (this.interactorsSelecting.Count == 2
             && XRInteractionUpdateOrder.UpdatePhase.Dynamic == updatePhase)
         {
             ProcessTwoHandGrab();
+            laser.enabled = true;
+            gunVisualCooldown.enabled = true;
+        } else
+        {
+            laser.enabled = false;
+            gunVisualCooldown.enabled = false;
         }
 
     }
