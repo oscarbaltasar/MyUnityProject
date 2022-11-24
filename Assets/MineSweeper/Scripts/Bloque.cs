@@ -73,9 +73,11 @@ public class Bloque : MonoBehaviour
     //Detectar colisión con pala
     void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Colision= " + collision.impulse.magnitude);
         if (collision.gameObject.tag == "Pala")
         {
-            if (collision.gameObject.GetComponent<TwoHandsGrabInteractable>().isSelected)
+            //Impulso
+            if (collision.gameObject.GetComponent<TwoHandsGrabInteractable>().isSelected && collision.impulse.magnitude > 0.5)
             {
                 MostrarContenido();
                 //this.gameObject.SetActive(false);

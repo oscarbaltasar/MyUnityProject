@@ -5,6 +5,7 @@ using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
+using YUR.Fit.Core.Models;
 
 public class Mina : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Mina : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Physics.IgnoreCollision(GameObject.Find("XR Origin").GetComponent<Collider>(), GetComponent<Collider>());
+
         //Repetir funcion cada x segundos
         InvokeRepeating("CambiarContador", 0, 1.0f);
     }
@@ -30,23 +33,4 @@ public class Mina : MonoBehaviour
         tiempoExplosion -= 1;
     }
 
-    /*
-    void OnTriggerEnter(Collider collider)
-    {
-
-        if (collider.tag == "Mano")
-        {
-            this.gameObject.GetComponent<Collider>().enabled = false;
-        }
-    }
-
-    void OnTriggerExit(Collider collider)
-    {
-
-        if (collider.tag == "Mano")
-        {
-            this.gameObject.GetComponent<Collider>().enabled = true;
-        }
-    }
-    */
 }
