@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7844853431143368344}
   - component: {fileID: 1482004195313318205}
   - component: {fileID: 4525331141946624052}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spikeball_Big
   m_TagString: Mina
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2978717280622162713}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 1351534945533286216}
   - component: {fileID: 5603496302779449563}
   - component: {fileID: 9066614721953938792}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Contador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   - component: {fileID: 6530342392492051064}
   - component: {fileID: 2103142624202510315}
   - component: {fileID: 4185271531081266552}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CanvasContador
   m_TagString: Untagged
   m_Icon: {fileID: 0}

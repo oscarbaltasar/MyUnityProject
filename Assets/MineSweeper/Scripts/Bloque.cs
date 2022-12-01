@@ -56,8 +56,10 @@ public class Bloque : MonoBehaviour
 
         if (mina)
         {
+            Vector3 posicicion = transform.position;
+            posicicion.y *= 1.5f;
             //Cargar mina
-            Instantiate(minaPrefav, transform.position, Quaternion.identity);
+            Instantiate(minaPrefav, posicicion, Quaternion.identity);
         }
         else
         {
