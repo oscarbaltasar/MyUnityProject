@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -716,7 +716,7 @@ Transform:
   - {fileID: 1550364482}
   - {fileID: 624202781360627305}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &48495784
 GameObject:
@@ -1295,6 +1295,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186661012}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &190519907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 190519908}
+  - component: {fileID: 190519909}
+  m_Layer: 0
+  m_Name: Player Fake Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &190519908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190519907}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -57.7, y: 0.278, z: -5.456}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &190519909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190519907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a15c9e7fb6fc0e94595f43baf25eab91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2007249380}
 --- !u!1 &255662480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1967,7 +2012,7 @@ GameObject:
   - component: {fileID: 561634798}
   - component: {fileID: 561634801}
   - component: {fileID: 561634797}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2087,7 +2132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b285faaf2baf049bbddac7a23985e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetivo: {fileID: 1189287692}
+  objetivo: {fileID: 190519908}
+  player_manager: {fileID: 1189287694}
+  attackCooldown: 1
+  danyo: 10
 --- !u!1 &561901152
 GameObject:
   m_ObjectHideFlags: 0
@@ -2779,7 +2827,7 @@ GameObject:
   - component: {fileID: 923591129}
   - component: {fileID: 923591124}
   - component: {fileID: 923591130}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2902,7 +2950,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPoint: {fileID: 1622450982}
-  objetivo: {fileID: 1189287691}
+  jugador: {fileID: 1189287691}
+  player_manager: {fileID: 1189287694}
+  danyo: 25
+  objetivo: {fileID: 190519908}
   laser: {fileID: 1750775128}
   distanciaMaximaRandom: 10
   tiempoEntreDisparos: 6
@@ -3494,6 +3545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1189287692}
   - component: {fileID: 1189287693}
+  - component: {fileID: 1189287694}
   m_Layer: 0
   m_Name: PlayerHitbox
   m_TagString: Untagged
@@ -3529,6 +3581,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 1.85, z: 0.67}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1189287694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189287691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8251a315ca3b45a419ccc3c9dbfcfa03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vida: 100
+  puntuacion: 0
 --- !u!1 &1193262688
 GameObject:
   m_ObjectHideFlags: 0
@@ -3560,7 +3626,7 @@ Transform:
   - {fileID: 561634796}
   - {fileID: 923591123}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1210694407
 GameObject:

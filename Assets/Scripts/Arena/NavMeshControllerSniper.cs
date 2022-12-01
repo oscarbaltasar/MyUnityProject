@@ -7,7 +7,10 @@ using UnityEngine.AI;
 public class NavMeshControllerSniper : MonoBehaviour
 {
     public Transform startPoint;
-    public GameObject objetivo;
+    public GameObject jugador;
+    public PlayerManager player_manager;
+    public float danyo;
+    public Transform objetivo;
     public LineRenderer laser;
     public float distanciaMaximaRandom;
     public float tiempoEntreDisparos;
@@ -17,7 +20,7 @@ public class NavMeshControllerSniper : MonoBehaviour
     private RaycastHit hit;
     private bool viendoaObjetivo;
     private bool hasShot;
-    private int i;
+    private int shotInterval;
 
     private float shotTimer;
 
@@ -25,7 +28,7 @@ public class NavMeshControllerSniper : MonoBehaviour
     void Start()
     {
         agente = GetComponent<NavMeshAgent>();
-        i = 1;
+        shotInterval = 1;
 
 
     }
@@ -35,14 +38,14 @@ public class NavMeshControllerSniper : MonoBehaviour
     {
         if (!hasShot)
         {
-            Vector3 direction = objetivo.transform.position - startPoint.position;
-            agente.SetDestination(objetivo.transform.position);
+            Vector3 direction = jugador.transform.position - startPoint.position;
+            agente.SetDestination(objetivo.position);
             if (Physics.Raycast(startPoint.position, direction, out hit))
             {
-                if (hit.transform == objetivo.transform)
+                if (hit.transform == jugador.transform)
                 {
                     agente.isStopped = true;
-                    this.transform.LookAt(objetivo.transform);
+                    this.transform.LookAt(jugador.transform);
                     viendoaObjetivo = true;
                 }
                 else
@@ -56,15 +59,14 @@ public class NavMeshControllerSniper : MonoBehaviour
                 shotTimer -= Time.deltaTime;
                 if (shotTimer > 1)
                 {
-                    if (shotTimer <= velocidadDeDisparo - i + 1 - (velocidadDeDisparo / (velocidadDeDisparo * i) * (i - 1)))
+                    if (shotTimer <= velocidadDeDisparo - shotInterval + 1 - (velocidadDeDisparo / (velocidadDeDisparo * shotInterval) * (shotInterval - 1)))
                     {
                         laser.enabled = false;
-                        Debug.Log(i);
                     }
-                    if (shotTimer <= velocidadDeDisparo - i + 1 - (velocidadDeDisparo / (velocidadDeDisparo * i) * i))
+                    if (shotTimer <= velocidadDeDisparo - shotInterval + 1 - (velocidadDeDisparo / (velocidadDeDisparo * shotInterval) * shotInterval))
                     {
                         laser.enabled = true;
-                        i += 1;
+                        shotInterval += 1;
                         
                     }
                 }
@@ -76,53 +78,20 @@ public class NavMeshControllerSniper : MonoBehaviour
                 {
                     //Una vez disparado
                     laser.enabled = false;
+                    player_manager.vida -= danyo;
                     //seleccionamos una posicion random
                     Vector3 newDirection = new Vector3(UnityEngine.Random.Range(-distanciaMaximaRandom, distanciaMaximaRandom), UnityEngine.Random.Range(-distanciaMaximaRandom, distanciaMaximaRandom), UnityEngine.Random.Range(-distanciaMaximaRandom, distanciaMaximaRandom));
                     newDirection += startPoint.position;
                     agente.destination = newDirection;
                     agente.isStopped = false;
                     shotTimer = tiempoEntreDisparos; //Tiempo para el siguiente disparo
-                    i = 1;
+                    shotInterval = 1;
                     hasShot = true;
-
                 }
-                /*if (shotTimer <= 5)
-                    laser.enabled = false;
-                if (shotTimer <= 4)
-                    laser.enabled = true;
-                if (shotTimer <= 3.5)
-                    laser.enabled = false;
-                if (shotTimer <= 3)
-                    laser.enabled = true;
-                if (shotTimer <= 2.5)
-                    laser.enabled = false;
-                if (shotTimer <= 2)
-                    laser.enabled = true;
-                if (shotTimer <= 1.75)
-                    laser.enabled = false;
-                if (shotTimer <= 1.5)
-                    laser.enabled = true;
-                if (shotTimer <= 1.25)
-                    laser.enabled = false;
-                if (shotTimer <= 1)
-                    laser.enabled = true;
-                if (shotTimer <= 0)
-                {
-                    //Una vez disparado
-                    laser.enabled = false;
-                    //seleccionamos una posicion random
-                    Vector3 newDirection = new Vector3(UnityEngine.Random.Range(-distanciaMaximaRandom, distanciaMaximaRandom), UnityEngine.Random.Range(-distanciaMaximaRandom, distanciaMaximaRandom), UnityEngine.Random.Range(-distanciaMaximaRandom, distanciaMaximaRandom));
-                    newDirection += startPoint.position;
-                    agente.destination = newDirection;
-                    agente.isStopped = false;
-                    shotTimer = tiempoEntreDisparos; //Tiempo para el siguiente disparo
-                    hasShot = true;
-
-                
-                }*/
             }
             else
             {
+                shotInterval = 1;
                 shotTimer = velocidadDeDisparo; //5 segundos que tarda en disparar
                 laser.enabled = false;
             }
