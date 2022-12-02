@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class GunGrabInteractable : XRGrabInteractable
+public class GunDoubleGrabInteractable : XRGrabInteractable
 {
     [SerializeField]
     private Transform _secondAttachTransform;
@@ -23,24 +23,23 @@ public class GunGrabInteractable : XRGrabInteractable
         if(this.interactorsSelecting.Count == 1)
         {
             base.ProcessInteractable(updatePhase);
-            laser.enabled = true;
-            gunVisualCooldown.enabled = true;
+            laser.enabled = false;
+            gunVisualCooldown.enabled = false;
         } else if (this.interactorsSelecting.Count == 2
             && XRInteractionUpdateOrder.UpdatePhase.Dynamic == updatePhase)
         {
             ProcessTwoHandGrab();
-            laser.enabled = true;
-            gunVisualCooldown.enabled = true;
         } else
         {
-            laser.enabled = false;
-            gunVisualCooldown.enabled = false;
+            
         }
 
     }
 
     private void ProcessTwoHandGrab()
     {
+        laser.enabled = true;
+        gunVisualCooldown.enabled = true;
         Transform firstAttach = GetAttachTransform(null);
         //Coger el punto donde está la mano principal
         Transform firstHand = interactorsSelecting[0].transform;
