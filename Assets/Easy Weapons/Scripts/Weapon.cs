@@ -209,8 +209,17 @@ public class Weapon : MonoBehaviour
 	// Other
 	private bool canFire = true;                        // Whether or not the weapon can currently fire (used for semi-auto weapons)
 
+	// VR Interactions
+	private bool isVRPressing = false;
+	private Vector3 startingPosition;
+    private Quaternion startingRotation;
 
-	private bool isVRPressing;
+
+	private void Awake()
+	{
+        startingPosition = this.transform.localPosition;
+        startingRotation = this.transform.localRotation;
+    }
 
 	// Use this for initialization
 	void Start()
@@ -218,7 +227,7 @@ public class Weapon : MonoBehaviour
 		// Calculate the actual ROF to be used in the weapon systems.  The rateOfFire variable is
 		// designed to make it easier on the user - it represents the number of rounds to be fired
 		// per second.  Here, an actual ROF decimal value is calculated that can be used with timers.
-		if (rateOfFire != 0)
+        if (rateOfFire != 0)
 			actualROF = 1.0f / rateOfFire;
 		else
 			actualROF = 0.01f;
@@ -280,8 +289,6 @@ public class Weapon : MonoBehaviour
 				Debug.LogWarning("Default Bullet Hole Pool does not have a BulletHolePool component.  Please assign GameObjects in the inspector that have the BulletHolePool component.");
 		}
 
-		isVRPressing = false;
-
     }
 	
 	// Update is called once per frame
@@ -325,10 +332,19 @@ public class Weapon : MonoBehaviour
 
 	}
 
+	// Function called when we press fire on VR
 	public void GetVRInput(bool state)
 	{
 		isVRPressing = state;
 	}
+
+	// Function called when we drop the weapon in VR
+	public void DropWeaponVR()
+	{
+		isVRPressing = false;
+		this.transform.localPosition = startingPosition;
+        this.transform.localRotation = startingRotation;
+    }
 
 	// Checks for user input to use the weapons - only if this weapon is player-controlled
 	void CheckForUserInput()
