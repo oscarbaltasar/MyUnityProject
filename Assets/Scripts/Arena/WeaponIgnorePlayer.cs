@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using YUR.Fit.Core.Models;
+
 
 public class WeaponIgnorePlayer : MonoBehaviour
 {

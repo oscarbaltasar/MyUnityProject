@@ -5,7 +5,6 @@ using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
-using YUR.Fit.Core.Models;
 
 public class Mina : MonoBehaviour
 {

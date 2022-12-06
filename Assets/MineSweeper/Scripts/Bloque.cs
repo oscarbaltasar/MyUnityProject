@@ -53,21 +53,22 @@ public class Bloque : MonoBehaviour
         mMostrado = true;
 
         string name;
-
+        Vector3 posicicion = transform.position;
         if (mina)
         {
-            Vector3 posicicion = transform.position;
-            posicicion.y *= 1.5f;
+            
+            posicicion.y *= 0f;
             //Cargar mina
             Instantiate(minaPrefav, posicicion, Quaternion.identity);
         }
         else
         {
+            posicicion.y *= -2f;
             int num = 0;
             mVecinos.ForEach(bloque => {
                 if (bloque.mina) num += 1;
             });
-            Instantiate(numerosPrefav[num], transform.position, Quaternion.Euler(-90, 0, 0));
+            Instantiate(numerosPrefav[num], posicicion, Quaternion.Euler(-90, 0, 0));
         }
 
     }
