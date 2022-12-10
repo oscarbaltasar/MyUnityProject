@@ -19,7 +19,6 @@ public class MirrorProbePosition : MonoBehaviour
     void Update()
     {
         transformHelper = new Vector3(-59.45f, PlayerPosition.position.y, PlayerPosition.position.z);
-        Debug.Log(transformHelper);
         ProbePosition.position = transformHelper;
     }
 }

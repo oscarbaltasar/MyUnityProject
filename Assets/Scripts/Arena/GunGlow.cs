@@ -26,7 +26,6 @@ public class GunGlow : MonoBehaviour
 
     private void CambiarColor(InputAction.CallbackContext obj)
     {
-        Debug.Log(obj.ToString());
             //interactorActivarAtaque.enabled = !interactorActivarAtaque.enabled;
             customColor.r -= 0.1f;
             customColor.g -= 0.1f;
