@@ -317,8 +317,8 @@ public class Weapon : MonoBehaviour
 		// Recoil Recovery
 		if (playerWeapon && recoil && type != WeaponType.Beam)
 		{
-			weaponModel.transform.position = Vector3.Lerp(weaponModel.transform.position, transform.position, recoilRecoveryRate * Time.deltaTime);
-			weaponModel.transform.rotation = Quaternion.Lerp(weaponModel.transform.rotation, transform.rotation, recoilRecoveryRate * Time.deltaTime);
+			//weaponModel.transform.position = Vector3.Lerp(weaponModel.transform.position, transform.position, recoilRecoveryRate * Time.deltaTime);
+			//weaponModel.transform.rotation = Quaternion.Lerp(weaponModel.transform.rotation, transform.rotation, recoilRecoveryRate * Time.deltaTime);
 		}
 
 		// Make sure StopBeam() is called when the weapon is no longer firing a beam (calling the Beam() method)
@@ -342,7 +342,8 @@ public class Weapon : MonoBehaviour
 	public void DropWeaponVR()
 	{
 		isVRPressing = false;
-		this.transform.localPosition = startingPosition;
+        Reload();
+        this.transform.localPosition = startingPosition;
         this.transform.localRotation = startingRotation;
     }
 
@@ -810,8 +811,8 @@ public class Weapon : MonoBehaviour
 		}
 
 		// Recoil
-		if (recoil)
-			Recoil();
+		//if (recoil)
+			//Recoil();
 		
 		// Muzzle flash effects
 		if (makeMuzzleEffects)
@@ -883,8 +884,8 @@ public class Weapon : MonoBehaviour
 		}
 		
 		// Recoil
-		if (recoil)
-			Recoil();
+		//if (recoil)
+			//Recoil();
 
 		// Muzzle flash effects
 		if (makeMuzzleEffects)

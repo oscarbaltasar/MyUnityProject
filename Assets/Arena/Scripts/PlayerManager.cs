@@ -7,15 +7,16 @@ public class PlayerManager : MonoBehaviour
 
     public float vida;
     public float puntuacion;
-    // Start is called before the first frame update
+
+    private float vidaInicial;
+
     void Start()
     {
-        
+        vidaInicial = vida;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ResetHealth()
     {
-        
+        vida = vidaInicial;
     }
 }

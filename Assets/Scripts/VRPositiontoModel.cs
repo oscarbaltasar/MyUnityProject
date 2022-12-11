@@ -30,7 +30,7 @@ public class VRPositiontoModel : MonoBehaviour
 
         LeftHandModel.position = LeftHandVR.position + LeftHandPositionOffset;
         LeftHandModel.rotation = LeftHandVR.rotation * LeftHandRotationOffset;
-        HeadModel.position = HeadVR.position;
-        HeadModel.rotation = HeadVR.rotation;
+        //HeadModel.position = HeadVR.position;
+        //HeadModel.rotation = HeadVR.rotation;
     }
 }

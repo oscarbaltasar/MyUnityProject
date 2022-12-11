@@ -15,6 +15,7 @@ public class RoundManager : MonoBehaviour
     public Transform spawnCorner1;
     public Transform spawnCorner2;
 
+    public PlayerManager playerManager;
     public GameObject roundTextObject;
 
     private int currentValue;
@@ -59,6 +60,7 @@ public class RoundManager : MonoBehaviour
                 currentRound++;
                 roundText.text = (System.Convert.ToInt32(roundText.text) + 1).ToString();
                 buttonPressed = false;
+                playerManager.ResetHealth();
             }
         }
     }
