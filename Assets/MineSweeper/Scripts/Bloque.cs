@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class Bloque : MonoBehaviour
 {
@@ -84,6 +85,8 @@ public class Bloque : MonoBehaviour
             {
                 MostrarContenido();
                 //this.gameObject.SetActive(false);
+                GameObject pala = GameObject.Find("RustyShovel");
+                pala.GetComponent<AudioSource>().Play();
                 Destroy(this.gameObject);
 
             }
