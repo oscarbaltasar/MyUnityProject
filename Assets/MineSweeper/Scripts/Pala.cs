@@ -16,5 +16,9 @@ public class Pala : MonoBehaviour
     {
         
     }
-   
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("COLISION PALA:" + collision.gameObject.name);
+    }
 }

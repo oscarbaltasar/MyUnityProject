@@ -49,10 +49,10 @@ public class TwoHandsGrabInteractable : XRGrabInteractable
         Vector3 directionBetweenAttach = secondAttach.position - firstAttach.position;
 
         //Rotación del arma dependiente de los puntos de attach
-        //Quaternion rotationFromAttachToForward = Quaternion.FromToRotation(directionBetweenAttach, this.transform.forward);
+        Quaternion rotationFromAttachToForward = Quaternion.FromToRotation(directionBetweenAttach, this.transform.forward);
 
         //Hacia donde mirar y decir cual es su vector up (y), será el firstHand.up. Multiplicado por la rotación de los attach será como sumar ambas rotaciones
-        Quaternion targetRotation = Quaternion.LookRotation(directionBetweenHands, firstHand.up);// * rotationFromAttachToForward;
+        Quaternion targetRotation = Quaternion.LookRotation(directionBetweenHands, firstHand.up) * rotationFromAttachToForward;
 
         //Vector desde Handle(Asa, Attach1) hasta el centro del arma
         Vector3 worldDirectionFromHandleToBase = transform.position - firstAttach.position;

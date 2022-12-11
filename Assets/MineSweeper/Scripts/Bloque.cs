@@ -85,7 +85,7 @@ public class Bloque : MonoBehaviour
             {
                 MostrarContenido();
                 //this.gameObject.SetActive(false);
-                GameObject pala = GameObject.Find("RustyShovel");
+                GameObject pala = GameObject.Find("Pala");
                 pala.GetComponent<AudioSource>().Play();
                 Destroy(this.gameObject);
 
