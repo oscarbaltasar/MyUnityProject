@@ -6236,7 +6236,7 @@ MonoBehaviour:
   enemyValueList: 050000000f000000
   spawnCorner1: {fileID: 821820842}
   spawnCorner2: {fileID: 1625369307}
-  playerManager: {fileID: 0}
+  playerManager: {fileID: 1189287694}
   roundTextObject: {fileID: 2007754122}
   buttonPressed: 0
 --- !u!4 &1419179686
