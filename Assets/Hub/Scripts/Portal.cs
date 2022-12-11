@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
+    public string scene;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class Portal : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Cargar escena de buscaminas
-        SceneManager.LoadScene("MineSweeper", LoadSceneMode.Single);
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
 
 }
