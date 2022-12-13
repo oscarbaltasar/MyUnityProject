@@ -15,6 +15,7 @@ public class Mina : MonoBehaviour
     void Start()
     {
         Physics.IgnoreCollision(GameObject.Find("XR Origin").GetComponent<Collider>(), GetComponent<Collider>());
+        Physics.IgnoreCollision(GameObject.Find("Ground").GetComponent<Collider>(), GetComponent<Collider>());
 
         //Repetir funcion cada x segundos
         InvokeRepeating("CambiarContador", 0, 1.0f);

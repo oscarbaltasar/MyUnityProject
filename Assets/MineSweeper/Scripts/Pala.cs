@@ -8,7 +8,8 @@ public class Pala : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Physics.IgnoreCollision(user.GetComponent<Collider>(), GetComponent<Collider>());
+       Physics.IgnoreCollision(user.GetComponent<Collider>(), GetComponent<Collider>());
+
     }
 
     // Update is called once per frame
