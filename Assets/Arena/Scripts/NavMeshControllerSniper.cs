@@ -23,13 +23,14 @@ public class NavMeshControllerSniper : MonoBehaviour
     private int shotInterval;
 
     private float shotTimer;
+    private int layermask;
 
     // Start is called before the first frame update
     void Start()
     {
         agente = GetComponent<NavMeshAgent>();
         shotInterval = 1;
-
+        layermask = LayerMask.GetMask("Default");
 
     }
 
@@ -40,11 +41,12 @@ public class NavMeshControllerSniper : MonoBehaviour
         {
             Vector3 direction = jugador.transform.position - startPoint.position;
             agente.SetDestination(objetivo.position);
-            if (Physics.Raycast(startPoint.position, direction, out hit))
-            {
+            if (Physics.Raycast(startPoint.position, direction, out hit, Mathf.Infinity, layermask))
+            {  
                 if (hit.transform == jugador.transform)
                 {
                     agente.isStopped = true;
+                    
                     this.transform.LookAt(jugador.transform);
                     viendoaObjetivo = true;
                 }
@@ -86,6 +88,7 @@ public class NavMeshControllerSniper : MonoBehaviour
                     agente.isStopped = false;
                     shotTimer = tiempoEntreDisparos; //Tiempo para el siguiente disparo
                     shotInterval = 1;
+                    viendoaObjetivo = false;
                     hasShot = true;
                 }
             }

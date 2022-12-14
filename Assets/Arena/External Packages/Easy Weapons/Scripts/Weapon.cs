@@ -214,8 +214,11 @@ public class Weapon : MonoBehaviour
 	private Vector3 startingPosition;
     private Quaternion startingRotation;
 
+	private int layermask;
 
-	private void Awake()
+
+
+    private void Awake()
 	{
         startingPosition = this.transform.localPosition;
         startingRotation = this.transform.localRotation;
@@ -288,6 +291,8 @@ public class Weapon : MonoBehaviour
 			else
 				Debug.LogWarning("Default Bullet Hole Pool does not have a BulletHolePool component.  Please assign GameObjects in the inspector that have the BulletHolePool component.");
 		}
+
+		layermask = LayerMask.GetMask("Default");
 
     }
 	
@@ -635,7 +640,7 @@ public class Weapon : MonoBehaviour
 			Ray ray = new Ray(raycastStartSpot.position, direction);
 			RaycastHit hit;
 
-			if (Physics.Raycast(ray, out hit, range))
+			if (Physics.Raycast(ray, out hit, range, layermask))
 			{
 				// Warmup heat
 				float damage = power;
@@ -960,7 +965,7 @@ public class Weapon : MonoBehaviour
 			// Initialize the next point.  If a raycast hit is not returned, this will be the forward direction * range
 			Vector3 nextPoint = ray.direction * range;
 
-			if (Physics.Raycast(ray, out hit, range))
+			if (Physics.Raycast(ray, out hit, range, layermask))
 			{
 				// Set the next point to the hit location from the raycast
 				nextPoint = hit.point;
