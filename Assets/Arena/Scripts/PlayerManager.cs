@@ -22,7 +22,7 @@ public class PlayerManager : MonoBehaviour
     {
         if(vida <= 0)
         {
-            SceneManager.LoadScene("Hub", LoadSceneMode.Single);
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
         }
         roundText.text = ((int)vida).ToString();
     }
