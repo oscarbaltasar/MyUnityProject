@@ -10,6 +10,7 @@ TagManager:
   - Mina
   - Mano
   - Cuerpo
+  - effect
   layers:
   - Default
   - TransparentFX
@@ -22,8 +23,8 @@ TagManager:
   - Pala
   - UserController
   - UserCollider
-  - 
-  - 
+  - PlanoMinas
+  - Teleport
   - 
   - 
   - 

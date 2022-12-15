@@ -9,6 +9,13 @@ public class LoadHubAsync : MonoBehaviour
     public float timeToStartLoading = 3;
 
     private bool loadedOnce = false;
+    private void Start()
+    {
+        if (GameManager.endingExplosion)
+        {
+            this.GetComponent<AudioSource>().Play();
+        }
+    }
     // Update is called once per frame
     void Update()
     {
