@@ -20,6 +20,8 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+        Debug.Log("CARGANDO");
         // Cargar escena de buscaminas
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
