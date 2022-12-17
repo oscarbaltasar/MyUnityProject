@@ -11043,7 +11043,7 @@ PrefabInstance:
     - target: {fileID: 679013762923359512, guid: 80c45f6ee638a6c49b554faeec5a0465,
         type: 3}
       propertyPath: danyo
-      value: 1
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 679013762923359512, guid: 80c45f6ee638a6c49b554faeec5a0465,
         type: 3}

@@ -3,9 +3,10 @@ guid: 7cfdbd9104e186642943082e0cd11378
 labels:
 - Weapon
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
   defaultReferences: []
-  executionOrder: 0
+  executionOrder: 100
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 

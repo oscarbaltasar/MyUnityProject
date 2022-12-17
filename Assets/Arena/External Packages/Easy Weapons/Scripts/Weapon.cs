@@ -653,7 +653,7 @@ public class Weapon : MonoBehaviour
 				// Damage
 				hit.collider.gameObject.SendMessageUpwards("ChangeHealth", -damage, SendMessageOptions.DontRequireReceiver);
 				
-				if (shooterAIEnabled)
+				/*if (shooterAIEnabled)
 				{
 					hit.transform.SendMessageUpwards("Damage", damage / 100, SendMessageOptions.DontRequireReceiver);
 				}
@@ -664,16 +664,6 @@ public class Weapon : MonoBehaviour
 					if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Limb"))
 					{
 						Vector3 directionShot = hit.collider.transform.position - transform.position;
-
-						//  Un-comment the following section for Bloody Mess compatibility
-						/*
-						if (hit.collider.gameObject.GetComponent<Limb>())
-						{
-							GameObject parent = hit.collider.gameObject.GetComponent<Limb>().parent;
-							CharacterSetup character = parent.GetComponent<CharacterSetup>();
-							character.ApplyDamage(damage, hit.collider.gameObject, weaponType, directionShot, Camera.main.transform.position);
-						}
-						*/
 					}
 				}
 
@@ -796,7 +786,7 @@ public class Weapon : MonoBehaviour
 					if (sbhg.bulletHole != null)
 						sbhg.bulletHole.PlaceBulletHole(hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
 				}
-				
+				*/
 				// Hit Effects
 				if (makeHitEffects)
 				{
