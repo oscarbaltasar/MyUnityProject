@@ -15,6 +15,14 @@ public class LoadHubAsync : MonoBehaviour
         {
             this.GetComponent<AudioSource>().Play();
         }
+        if (GameManager.endingWin)
+        {
+            GameObject.Find("GameOver").GetComponent<TextMesh>().text = "WIN";
+        }
+        else
+        {
+            GameObject.Find("GameOver").GetComponent<TextMesh>().text = "Game Over";
+        }
     }
     // Update is called once per frame
     void Update()
