@@ -6,20 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Hub.unity
-    guid: e869043c7c08d04458639ffa24017655
-  - enabled: 1
-    path: Assets/Scenes/MineSweeper.unity
-    guid: e9cf73df73587e14eb53bc4cca62b14f
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: 0ae7a29378022fe409fb61915b7dd3a0
-  - enabled: 1
-    path: Assets/Scenes/Arena.unity
-    guid: d6f2923a542883142b19b2ba1100c2dc
-  - enabled: 1
     path: Assets/Scenes/Intro.unity
     guid: 5d74fea979e664e94a2034bb859682d5
+  - enabled: 1
+    path: Assets/Scenes/Hub.unity
+    guid: e869043c7c08d04458639ffa24017655
+  - enabled: 0
+    path: Assets/Scenes/MineSweeper.unity
+    guid: e9cf73df73587e14eb53bc4cca62b14f
+  - enabled: 0
+    path: Assets/Scenes/GameOver.unity
+    guid: 0ae7a29378022fe409fb61915b7dd3a0
+  - enabled: 0
+    path: Assets/Scenes/Arena.unity
+    guid: d6f2923a542883142b19b2ba1100c2dc
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 09fcd8a5e79f2d4468049696d8ef790e,
       type: 2}

@@ -5,10 +5,13 @@ public enum ENUM_STEPS
     Cinematic,
     Welcome,
     ActivateSenses,
+    Tutorial,
     PassTutorial,
     InitTutorial,
     InitNarration,
-    InterruptAction
+    InterruptAction,
+    ContinueAction,
+    PauseAction
 } 
 public class IntroductionManager : Singleton
 {
@@ -20,10 +23,13 @@ public class IntroductionManager : Singleton
     public event OnStart OnIntroStart;
     public event OnStart OnCinematicStart;
     public event OnStart OnWelcomeStart;
+    public event OnStart OnTutorialStart;
     public event OnStart OnPassTutorial;
     public event OnStart OnActivateSenses;
     public event OnStart OnInitTutorial;
     public event OnStart OnInitNarration;
+    public event OnStart OnContinueAction;
+    public event OnStart OnPauseAction;
 
 
     public void InitAction(ENUM_STEPS action)
@@ -44,6 +50,9 @@ public class IntroductionManager : Singleton
             case ENUM_STEPS.ActivateSenses:
                 OnActivateSenses?.Invoke();
                 break;
+            case ENUM_STEPS.Tutorial:
+                OnTutorialStart?.Invoke();
+                break;
             case ENUM_STEPS.PassTutorial:
                 OnPassTutorial?.Invoke();
                 break;
@@ -55,6 +64,12 @@ public class IntroductionManager : Singleton
                 break;
             case ENUM_STEPS.InterruptAction:
                 InterruptAction();
+                break;
+            case ENUM_STEPS.ContinueAction:
+                OnContinueAction?.Invoke();
+                break;
+            case ENUM_STEPS.PauseAction:
+                OnPauseAction?.Invoke();
                 break;
         }   
     }
