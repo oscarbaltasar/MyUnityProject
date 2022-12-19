@@ -7,12 +7,13 @@ public class Mina : MonoBehaviour
 
     public GameObject contador;
     public int tiempoExplosion;
+    public bool contadorOn = true;
     // Start is called before the first frame update
     void Start()
     {
+        contadorOn = true;
         Physics.IgnoreCollision(GameObject.Find("XR Origin").GetComponent<Collider>(), GetComponent<Collider>());
         Physics.IgnoreCollision(GameObject.Find("Ground").GetComponent<Collider>(), GetComponent<Collider>());
-
 
 
         //Repetir funcion cada x segundos
@@ -31,8 +32,10 @@ public class Mina : MonoBehaviour
         {
             GameManager.endExplosion();
         }
-        contador.GetComponent<TMP_Text>().text = tiempoExplosion + "";
-        tiempoExplosion -= 1;
+        if (contadorOn) { 
+            contador.GetComponent<TMP_Text>().text = tiempoExplosion + "";
+            tiempoExplosion -= 1;
+        }
 
 
     }
