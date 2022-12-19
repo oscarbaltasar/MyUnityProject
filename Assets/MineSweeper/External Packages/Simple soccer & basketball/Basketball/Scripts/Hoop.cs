@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using TMPro;
 using static UnityEngine.Rendering.DebugUI;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Hoop : MonoBehaviour {
 	
@@ -37,8 +38,17 @@ public class Hoop : MonoBehaviour {
     {
 		collider.gameObject.GetComponent<Mina>().contadorOn = false;
         yield return new WaitForSeconds(0.5f);
+        SendHaptics();
         collider.gameObject.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(3);
         collider.gameObject.SetActive(false);
+    }
+
+    public void SendHaptics()
+    {
+        XRBaseController leftHand = (XRBaseController)GameObject.Find("LeftHand Controller").GetComponent<XRBaseController>();
+        leftHand.SendHapticImpulse(0.7f, 0.5f);
+        XRBaseController rightHand = (XRBaseController)GameObject.Find("RightHand Controller").GetComponent<XRBaseController>();
+        rightHand.SendHapticImpulse(0.7f, 0.5f);
     }
 }

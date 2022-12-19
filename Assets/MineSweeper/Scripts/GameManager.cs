@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
                 minas++;
             }
         }
-        minas = 1;
+        //minas = 1;
     }
 
     // Update is called once per frame
